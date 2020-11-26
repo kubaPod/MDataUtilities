@@ -4,19 +4,13 @@ Cell[CellGroupData[{
 Cell["MDataUtilities", \
 "Title",ExpressionUUID->"4602b3dc-3f93-4833-963a-5fb9907ff168"],
 
-Cell[BoxData[
- RowBox[{"PacletDirectoryAdd", " ", "@", " ", 
-  RowBox[{"NotebookDirectory", "[", "]"}]}]], "Input",
- CellLabel->"In[1]:=",ExpressionUUID->"957a6885-f8c1-430e-9666-e510bb45940b"],
-
-Cell[BoxData[
+Cell[BoxData[{
+ RowBox[{"PacletDirectoryLoad", " ", "@", " ", 
+  RowBox[{"NotebookDirectory", "[", "]"}]}], "\n", 
  RowBox[{"SetDirectory", " ", "@", " ", 
-  RowBox[{"NotebookDirectory", "[", "]"}]}]], "Input",
- CellLabel->"In[2]:=",ExpressionUUID->"ec7c3350-fc29-4b93-bac2-eddcbfc7f909"],
-
-Cell[BoxData[
- RowBox[{"<<", "MDataUtilities`"}]], "Input",
- CellLabel->"In[3]:=",ExpressionUUID->"0c6eb251-445c-47a0-a941-690acb4ef611"],
+  RowBox[{"NotebookDirectory", "[", "]"}]}], "\n", 
+ RowBox[{"<<", "MDataUtilities`"}]}], "Input",
+ CellLabel->"In[57]:=",ExpressionUUID->"957a6885-f8c1-430e-9666-e510bb45940b"],
 
 Cell[CellGroupData[{
 
@@ -53,12 +47,73 @@ Cell[BoxData[
     RowBox[{"TextCell", "[", 
      RowBox[{"#", ",", "\"\<Program\>\""}], "]"}], "&"}]}], "//", 
   "CellPrint"}]], "Input",
- CellLabel->"In[30]:=",ExpressionUUID->"d68d97fc-860b-4712-a252-eec14e344096"]
+ CellLabel->"In[30]:=",ExpressionUUID->"d68d97fc-860b-4712-a252-eec14e344096"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$entities", "=", 
+   RowBox[{"CharacterRange", "[", 
+    RowBox[{"\"\<a\>\"", ",", "\"\<j\>\""}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"SeedRandom", "[", "10", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"$events", "=", 
+   RowBox[{"Table", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<date\>\"", "\[Rule]", 
+        RowBox[{
+         RowBox[{"ResourceFunction", "[", "\"\<RandomDate\>\"", "]"}], "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"DateObject", "@", 
+            RowBox[{"{", 
+             RowBox[{"2020", ",", "1", ",", "1"}], "}"}]}], ",", "Today"}], 
+          "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<entityIds\>\"", "\[Rule]", 
+        RowBox[{"RandomSample", "[", 
+         RowBox[{"$entities", ",", "2"}], "]"}]}]}], "\[IndentingNewLine]", 
+      "|>"}], ",", "\[IndentingNewLine]", "2000"}], "\[IndentingNewLine]", 
+    "]"}]}], ";"}]}], "Input",
+ CellLabel->"In[45]:=",ExpressionUUID->"fb7657ce-a6ee-4491-a915-f96519473ae0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TimelineGraph", "[", 
+   RowBox[{"$events", ",", " ", 
+    RowBox[{"ImageSize", " ", "->", " ", "700"}]}], "]"}], "\n"}]], "Input",
+ CellLabel->"In[48]:=",ExpressionUUID->"5863fa12-3879-46c1-b424-dd25803a2822"],
+
+Cell[BoxData[
+ RowBox[{"nb", "=", 
+  RowBox[{
+   RowBox[{"Notebooks", "[", "]"}], "[", 
+   RowBox[{"[", "3", "]"}], "]"}]}]], "Input",
+ CellLabel->"In[90]:=",ExpressionUUID->"bfdf3eb0-9c4e-4638-9a6c-0f55840a3c8e"],
+
+Cell[BoxData[
+ RowBox[{"MDExport", "[", "\[IndentingNewLine]", 
+  RowBox[{
+  "\"\<README.md\>\"", ",", "\[IndentingNewLine]", "nb", ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"\"\<MDElementTemplates\>\"", "\[Rule]", 
+    RowBox[{"<|", 
+     RowBox[{"\"\<CodeBlock\>\"", "\[Rule]", 
+      RowBox[{"TemplateExpression", "@", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{"\"\<```\\n\>\"", ",", 
+         RowBox[{"TemplateSlot", "[", "1", "]"}], ",", "\"\<\\n```\>\""}], 
+        "]"}]}]}], "|>"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"\"\<ImagesFetchURL\>\"", "\[Rule]", 
+    RowBox[{"URL", "[", "\"\<img\>\"", "]"}]}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellLabel->"In[91]:=",ExpressionUUID->"9699b32b-f31f-465a-9fed-d1a2c5c03767"]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1291, 873},
-WindowMargins->{{Automatic, -27}, {Automatic, 60}},
+WindowMargins->{{Automatic, 121}, {Automatic, 47}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 TaggingRules->{
  "WelcomeScreenSettings" -> {"FEStarting" -> False}, 
