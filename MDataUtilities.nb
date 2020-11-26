@@ -1,58 +1,238 @@
-(* Content-type: application/vnd.wolfram.mathematica *)
-
-(*** Wolfram Notebook File ***)
-(* http://www.wolfram.com/nb *)
-
-(* CreatedBy='Mathematica 12.1' *)
-
-(*CacheID: 234*)
-(* Internal cache information:
-NotebookFileLineBreakTest
-NotebookFileLineBreakTest
-NotebookDataPosition[       158,          7]
-NotebookDataLength[      1455,         49]
-NotebookOptionsPosition[       885,         33]
-NotebookOutlinePosition[      1234,         48]
-CellTagsIndexPosition[      1191,         45]
-WindowFrame->Normal*)
-
-(* Beginning of Notebook Content *)
 Notebook[{
-Cell["MDataUtilities", "Title"],
+
+Cell[CellGroupData[{
+Cell["MDataUtilities", \
+"Title",ExpressionUUID->"4602b3dc-3f93-4833-963a-5fb9907ff168"],
 
 Cell[BoxData[
  RowBox[{"PacletDirectoryAdd", " ", "@", " ", 
-  RowBox[{"NotebookDirectory", "[", "]"}]}]], "Input"],
+  RowBox[{"NotebookDirectory", "[", "]"}]}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"957a6885-f8c1-430e-9666-e510bb45940b"],
 
 Cell[BoxData[
  RowBox[{"SetDirectory", " ", "@", " ", 
-  RowBox[{"NotebookDirectory", "[", "]"}]}]], "Input"],
+  RowBox[{"NotebookDirectory", "[", "]"}]}]], "Input",
+ CellLabel->"In[2]:=",ExpressionUUID->"ec7c3350-fc29-4b93-bac2-eddcbfc7f909"],
 
 Cell[BoxData[
- RowBox[{"<<", "MDataUtilities`"}]], "Input"]
+ RowBox[{"<<", "MDataUtilities`"}]], "Input",
+ CellLabel->"In[3]:=",ExpressionUUID->"0c6eb251-445c-47a0-a941-690acb4ef611"],
+
+Cell[CellGroupData[{
+
+Cell["sExamples export", \
+"Subsection",ExpressionUUID->"74f612f6-3dbf-4306-ac9f-9ca57273b70a"],
+
+Cell[BoxData[
+ RowBox[{"<<", "M2MD`"}]], "Input",
+ CellLabel->"In[19]:=",ExpressionUUID->"f266b5f1-2e28-4c29-a28b-04f32829ab4d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"M2MD", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"EvaluationNotebook", "[", "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<MDElementTemplates\>\"", "\[Rule]", 
+        RowBox[{"<|", 
+         RowBox[{"\"\<CodeBlock\>\"", "\[Rule]", 
+          RowBox[{"TemplateExpression", "@", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"\"\<```\\n\>\"", ",", 
+             RowBox[{"TemplateSlot", "[", "1", "]"}], ",", "\"\<\\n```\>\""}],
+             "]"}]}]}], "|>"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<ImagesFetchURL\>\"", "\[Rule]", 
+        RowBox[{"URL", "[", "\"\<img\>\"", "]"}]}]}], "\[IndentingNewLine]", 
+      "]"}], "//", 
+     RowBox[{"StringCases", "[", 
+      RowBox[{"\"\<### Examples\>\"", "~~", "__"}], "]"}]}], "//", "First"}], 
+   "//", 
+   RowBox[{
+    RowBox[{"TextCell", "[", 
+     RowBox[{"#", ",", "\"\<Program\>\""}], "]"}], "&"}]}], "//", 
+  "CellPrint"}]], "Input",
+ CellLabel->"In[20]:=",ExpressionUUID->"d68d97fc-860b-4712-a252-eec14e344096"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Examples", \
+"Subsection",ExpressionUUID->"be255ccf-7527-41ec-99ec-480b64b1a474"],
+
+Cell[CellGroupData[{
+
+Cell["TimelineGraph", \
+"Subsubsection",ExpressionUUID->"06d4e7b6-1eb5-4a05-ae74-952b2dcf526d"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$entities", "=", 
+   RowBox[{"CharacterRange", "[", 
+    RowBox[{"\"\<a\>\"", ",", "\"\<j\>\""}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"SeedRandom", "[", "10", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"$events", "=", 
+   RowBox[{"Table", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<date\>\"", "\[Rule]", 
+        RowBox[{
+         RowBox[{"ResourceFunction", "[", "\"\<RandomDate\>\"", "]"}], "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"DateObject", "@", 
+            RowBox[{"{", 
+             RowBox[{"2020", ",", "1", ",", "1"}], "}"}]}], ",", "Today"}], 
+          "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<entityIds\>\"", "\[Rule]", 
+        RowBox[{"RandomSample", "[", 
+         RowBox[{"$entities", ",", "2"}], "]"}]}]}], "\[IndentingNewLine]", 
+      "|>"}], ",", "\[IndentingNewLine]", "20"}], "\[IndentingNewLine]", 
+    "]"}]}], ";"}]}], "Input",
+ CellLabel->"In[15]:=",ExpressionUUID->"89763898-b715-4b79-9b10-b39d495897f8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TimelineGraph", "[", 
+   RowBox[{"$events", ",", " ", 
+    RowBox[{"ImageSize", " ", "->", " ", "700"}]}], "]"}], "\n"}]], "Input",
+ CellLabel->"In[18]:=",ExpressionUUID->"99223b57-0897-4d2b-8108-c3c391aa7ea6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["GroupByMerge", \
+"Subsubsection",ExpressionUUID->"bd488560-2126-4894-bce0-761da651875f"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"$dataset", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<a\>\"", "\[Rule]", "1"}], ",", 
+        RowBox[{"\"\<c\>\"", "\[Rule]", "2"}]}], "|>"}], ",", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<a\>\"", "\[Rule]", "1"}], ",", 
+        RowBox[{"\"\<b\>\"", "\[Rule]", "2"}]}], "|>"}], ",", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<a\>\"", "\[Rule]", "2"}], ",", 
+        RowBox[{"\"\<c\>\"", "\[Rule]", "1"}]}], "|>"}]}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"GroupByMerge", "[", 
+  RowBox[{"$dataset", ",", 
+   RowBox[{"Key", "[", "\"\<a\>\"", "]"}], ",", "First"}], "]"}]}], "Input",
+ CellLabel->"In[47]:=",ExpressionUUID->"1fd9ad07-d850-4fd3-ae6b-24510d21d9a4"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["EnumerateRecords", \
+"Subsubsection",ExpressionUUID->"6a91b778-076a-45cf-a895-1dc0eafd984a"],
+
+Cell[BoxData[
+ RowBox[{"EnumerateRecords", "@", "$dataset"}]], "Input",
+ CellLabel->"In[49]:=",ExpressionUUID->"7887bead-3ca5-41a1-b52f-8972284f86df"],
+
+Cell[BoxData[
+ RowBox[{"EnumerateRecords", "[", 
+  RowBox[{"$dataset", ",", "\"\<pos\>\""}], "]"}]], "Input",
+ CellLabel->"In[50]:=",ExpressionUUID->"7ac3639c-2b14-494c-a1ec-48d0f766e381"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["ApplyKeyAdd", \
+"Subsubsection",ExpressionUUID->"ef3f54d3-3d3b-4597-96e4-645b23d63e7c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ApplyKeyAdd", "[", 
+   RowBox[{"\"\<x\>\"", "\[Rule]", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"#a", "^", "2"}], "&"}], ")"}]}], "]"}], "/@", 
+  "$dataset"}]], \
+"Input",ExpressionUUID->"2137d3ff-74d6-4ee8-b63f-29552584aaee"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
 },
+WindowSize->{1291, 873},
+WindowMargins->{{Automatic, -27}, {Automatic, 60}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
+TaggingRules->{
+ "WelcomeScreenSettings" -> {"FEStarting" -> False}, 
+  "DevTools" -> {"MenuMethod" -> "Cell"}, 
+  "CREO" -> {
+   "prod" -> {
+     "Token" -> 
+      "H5ZWfUWgkLASTe61EQYdExH9vyZU8MBmgwA5h82E697JkX8wxizD7UMWyTSoOkjU", 
+      "User" -> Association[
+       "id" -> "adminId", "firstName" -> "Super", "lastName" -> "Admin", 
+        "email" -> "support@sylva.ac", "lastAccess" -> 
+        "2020-11-06T14:11:28.247Z", "emailVerified" -> True, "createdAt" -> 
+        "2017-02-07T16:21:03.219Z", "updatedAt" -> "2020-11-06T14:11:28.249Z",
+         "roles" -> {"superadmin", "developer", "sylvauser", "creouser"}], 
+      "RecentFiles" -> {
+        Association[
+        "name" -> "test-11-2-1.nb.zip", "datatype" -> 
+         "application/octet-stream", "size" -> 5546, "source" -> 
+         "58773c3bac8f880600a82d38/creo-courseware/1526976860/test-11-2-1.nb.\
+zip", "status" -> 0, "projectId" -> "58773c3bac8f880600a82d38", 
+         "componentModel" -> "creo-courseware", "parsed" -> Null, "data" -> 
+         Null, "container" -> "projects", "createdAt" -> 
+         "2018-04-24T13:28:16.948Z", "updatedAt" -> 
+         "2018-05-22T08:14:20.255Z", "id" -> "5adf30f0bd27c20d0036b79e"], 
+        Association[
+        "name" -> "testKuba.nb.zip", "datatype" -> "application/octet-stream",
+          "size" -> 8737276, "source" -> 
+         "5b38fb6a9b576c20343fe011/creo-courseware/1600861936/testKuba.nb.\
+zip", "status" -> 0, "projectId" -> "5b38fb6a9b576c20343fe011", 
+         "componentModel" -> "creo-courseware", "parsed" -> Null, "container" -> 
+         "projects", "createdAt" -> "2019-05-28T13:07:08.321Z", "updatedAt" -> 
+         "2020-09-23T11:52:16.726Z", "id" -> "5ced327cbbcb44001136533e", 
+         "filename" -> "testKuba.nb.zip", "label" -> 
+         "BasedOnComputationalThinking"]}}, "DebugMode" -> True, 
+    "Environment" -> "test", "test" -> {"RecentFiles" -> {
+        Association[
+        "name" -> "preview", "datatype" -> "application/octet-stream", "size" -> 
+         4338, "source" -> 
+         "5b38fb6a9b576c20343fe011/creo-assignmentTemplate/1603432054/\
+preview", "status" -> 0, "projectId" -> "5b38fb6a9b576c20343fe011", 
+         "componentModel" -> "creo-assignmentTemplate", "parsed" -> Null, 
+         "container" -> "projects", "createdAt" -> "2020-07-15T15:45:47.449Z",
+          "updatedAt" -> "2020-10-23T05:47:34.487Z", "id" -> 
+         "5f0f24ab52003500128df1c0", "filename" -> "preview", "label" -> 
+         "TestCollection"], 
+        Association[
+        "name" -> "test.nb.zip", "datatype" -> "application/octet-stream", 
+         "size" -> 48860, "source" -> 
+         "5b38fb6a9b576c20343fe011/creo-courseware/1604672290/test.nb.zip", 
+         "status" -> 0, "projectId" -> "5b38fb6a9b576c20343fe011", 
+         "componentModel" -> "creo-courseware", "parsed" -> Null, "container" -> 
+         "projects", "createdAt" -> "2020-02-16T08:43:24.583Z", "updatedAt" -> 
+         "2020-11-06T14:18:10.607Z", "id" -> "5e4900acb2e1290012fd3854", 
+         "filename" -> "test.nb.zip"]}, "Token" -> 
+      "Gyu2a2CjqotGt11KtUNJwH63dCascejlS50Q5cNYUtKmBeLE255q48Dn8DisuNuF", 
+      "User" -> Association[
+       "id" -> "adminId", "firstName" -> "Super", "lastName" -> "Admin", 
+        "email" -> "support@sylva.ac", "lastAccess" -> 
+        "2020-11-17T12:57:44.672Z", "emailVerified" -> True, "createdAt" -> 
+        "2017-02-07T16:21:03.219Z", "updatedAt" -> "2020-11-17T12:57:44.681Z",
+         "roles" -> {"superadmin", "sylvauser", "creouser", "developer"}]}}, 
+  "CreoDevEnvironment" -> "creoandsylva", "TryRealOnly" -> False},
 TrackCellChangeTimes->False,
-FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (June 19, 2020)",
-StyleDefinitions->"Default.nb"
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (November 25, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"ad7ee44b-0ec9-453d-80b8-317b80842fb7"
 ]
-(* End of Notebook Content *)
 
-(* Internal cache information *)
-(*CellTagsOutline
-CellTagsIndex->{}
-*)
-(*CellTagsIndex
-CellTagsIndex->{}
-*)
-(*NotebookFileOutline
-Notebook[{
-Cell[558, 20, 31, 0, 70, "Title",ExpressionUUID->"4602b3dc-3f93-4833-963a-5fb9907ff168"],
-Cell[592, 22, 115, 2, 70, "Input",ExpressionUUID->"957a6885-f8c1-430e-9666-e510bb45940b"],
-Cell[710, 26, 109, 2, 70, "Input",ExpressionUUID->"ec7c3350-fc29-4b93-bac2-eddcbfc7f909"],
-Cell[822, 30, 59, 1, 70, "Input",ExpressionUUID->"0c6eb251-445c-47a0-a941-690acb4ef611"]
-}
-]
-*)
-
-(* End of internal cache information *)
