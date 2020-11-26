@@ -22,28 +22,57 @@ Data wrangling and visualization utilities for Mathematica
 << MDataUtilities`
 ```
 
-## Examples
+### Examples
 
+#### TimelineGraph
 
-### TimelineGraph
-
-
-
-```mathematica
+```
 $entities = Range@20;
 SeedRandom[10];
 $events = Table[
- <|
-  "date" -> RandomDate[DateObject@{2020, 1, 1}, Today],
-  "entityIds" -> RandomSample[$entities, 2]
-  |>
- , 20];
-```
+   <|
+    "date" -> RandomDate[DateObject@{2020, 1, 1}, Today],
+    "entityIds" -> RandomSample[$entities, 2]
+    |>,
+   20
+   ];
 
-```mathematica
 TimelineGraph[$events, ImageSize -> 700]
+
 ```
 
-![0edq2kqycdsv0](img/0edq2kqycdsv0.png)
+![06jvdn3yeq4sd](img/06jvdn3yeq4sd.png)
 
+#### GroupByMerge
 
+```
+$dataset = {<|"a" -> 1, "c" -> 2|>, <|"a" -> 1, "b" -> 2|>, <|
+    "a" -> 2, "c" -> 1|>};
+
+GroupByMerge[$dataset, Key["a"], First]
+
+(*{<|"a" -> 1, "c" -> 2, "b" -> 2|>, <|"a" -> 2, "c" -> 1|>}*)
+```
+
+#### EnumerateRecords
+
+```
+EnumerateRecords@$dataset
+
+(*{<|"a" -> 1, "c" -> 2, "index" -> 1|>, <|"a" -> 1, "b" -> 2, 
+  "index" -> 2|>, <|"a" -> 2, "c" -> 1, "index" -> 3|>}*)
+
+EnumerateRecords[$dataset, "pos"]
+
+(*{<|"a" -> 1, "c" -> 2, "pos" -> 1|>, <|"a" -> 1, "b" -> 2, 
+  "pos" -> 2|>, <|"a" -> 2, "c" -> 1, "pos" -> 3|>}*)
+```
+
+#### ApplyKeyAdd
+
+```
+ApplyKeyAdd["x" -> (#a^2 &)] /@ $dataset
+
+(*{<|"a" -> 1, "c" -> 2, "x" -> 1|>, <|"a" -> 1, "b" -> 2, 
+  "x" -> 1|>, <|"a" -> 2, "c" -> 1, "x" -> 4|>}*)
+```
