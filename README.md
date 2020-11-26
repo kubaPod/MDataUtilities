@@ -1,6 +1,6 @@
 # MDataUtilities
 
-Data wrangling and visialization utilities for Mathematica
+Data wrangling and visualization utilities for Mathematica
 
 
 ## Installation
