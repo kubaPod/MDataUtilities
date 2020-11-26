@@ -30,9 +30,6 @@ Data wrangling and visualization utilities for Mathematica
 
 
 ```mathematica
-
-
-
 $entities = Range@20;
 SeedRandom[10];
 $events = Table[
@@ -44,9 +41,7 @@ $events = Table[
 ```
 
 ```mathematica
-TimelineGraph[
-$events, ImageSize -> 700
-]
+TimelineGraph[$events, ImageSize -> 700]
 ```
 
 ![0edq2kqycdsv0](img/0edq2kqycdsv0.png)
