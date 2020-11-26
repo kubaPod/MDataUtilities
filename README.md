@@ -46,7 +46,7 @@ TimelineGraph[$events, ImageSize -> 700]
 
 ```
 
-![1uwhd18g9wq7n](img\1uwhd18g9wq7n.png)
+![1uwhd18g9wq7n](img//1uwhd18g9wq7n.png)
 
 ### Wrangling
 
@@ -108,4 +108,4 @@ Row@{
   }
 ```
 
-![18vvdt4fv1wv3](img\18vvdt4fv1wv3.png)
+![18vvdt4fv1wv3](img//18vvdt4fv1wv3.png)
