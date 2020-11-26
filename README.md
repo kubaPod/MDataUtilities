@@ -13,7 +13,7 @@ Data wrangling and visialization utilities for Mathematica
    
 ### Via WRF:GitHubInstall
    
-   ResourceFunction["GitHubInstall"]["kubapod", "MDataUtilities"]
+    ResourceFunction["GitHubInstall"]["kubapod", "MDataUtilities"]
 
 ## Start
 
