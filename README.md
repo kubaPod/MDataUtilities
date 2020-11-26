@@ -15,8 +15,40 @@ Data wrangling and visialization utilities for Mathematica
    
     ResourceFunction["GitHubInstall"]["kubapod", "MDataUtilities"]
 
-## Start
+## Load
 
-  << MDataUtilities`
+
+```mathematica
+<< MDataUtilities`
+```
+
+## Examples
+
+
+### Timelinegraph
+
+
+
+```mathematica
+
+
+
+$entities = Range@20;
+SeedRandom[10];
+$events = Table[
+ <|
+  "date" -> RandomDate[DateObject@{2020, 1, 1}, Today],
+  "entityIds" -> RandomSample[$entities, 2]
+  |>
+ , 20];
+```
+
+```mathematica
+TimelineGraph[
+$events, ImageSize -> 700
+]
+```
+
+![0edq2kqycdsv0](img\\0edq2kqycdsv0.png)
 
 
