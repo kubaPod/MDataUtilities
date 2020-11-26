@@ -49,6 +49,6 @@ $events, ImageSize -> 700
 ]
 ```
 
-![0edq2kqycdsv0](img\\0edq2kqycdsv0.png)
+![0edq2kqycdsv0](img/0edq2kqycdsv0.png)
 
 
