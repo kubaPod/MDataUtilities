@@ -1,17 +1,13 @@
 (* ::Package:: *)
 
 (* ::Chapter:: *)
-(* Metadata*)
-
-
-(* ::Chapter:: *)
 (* Begin package*)
 
 
 BeginPackage["`MDataUtilities`"];
 
 
-  TimelineGraph::"TimelineGraph[{ <|'date'->_, 'entityIds' -> {__}|>]";
+  TimelineGraph::usage = "TimelineGraph[{ <|'date'->_, 'entityIds' -> {__}|>]";
 
 
 Begin["`TimelineGraph`"];
@@ -34,6 +30,7 @@ TimelineGraph[events:{$eventPattern..}, opts:OptionsPattern[Graphics] ]:=Module[
 
   ; Graphics[
     {
+      Arrowheads@.015, Thick, AbsolutePointSize @ 4,
       eventsPrimitive[#, entities]& /@ events
     }
     , opts
@@ -63,10 +60,8 @@ eventsPrimitive[
   , ent       = event["entityIds"] /. GroupBy[entities, Key["id"],First]
 }
   ,{
-    Arrowheads@.015,
-    Thick,
-    ent[[1, "color"]],
-    AbsolutePointSize @ 4,
+    
+    ent[[1, "color"]],    
     Point @ {time,  ent[[1, "index"]]},
     Tooltip[
       Arrow[{

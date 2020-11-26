@@ -1,0 +1,1310 @@
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["MDataUtilities", \
+"Title",ExpressionUUID->"d1d6d25f-5481-4c5b-921c-ced8f0a5895f"],
+
+Cell["Data wrangling and visualization utilities for Mathematica", \
+"Text",ExpressionUUID->"b7846111-697f-4c3d-a7e1-98d670aa83d1"],
+
+Cell[CellGroupData[{
+
+Cell["Installation", \
+"Section",ExpressionUUID->"6ce2eaf7-6312-4ab1-9a3d-d01553a017d2"],
+
+Cell[CellGroupData[{
+
+Cell["Manual", \
+"Subsection",ExpressionUUID->"8a2dfbfb-f534-46fa-85c7-484d0ba80e51"],
+
+Cell["\<\
+Go to \[OpenCurlyQuote]releases\[CloseCurlyQuote] tab and download \
+appropriate .paclet file.
+ 
+Run `PacletInstall @ path/to/the.paclet` file
+\
+\>", "Text",ExpressionUUID->"e3fa7605-3896-41e9-9d20-4391fc04dcbb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Via WRF: GitHubInstall", \
+"Subsection",ExpressionUUID->"5b2c639e-79a6-43bd-87dc-071b2f5c0ac5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ResourceFunction", "[", "\"\<GitHubInstall\>\"", "]"}], "[", 
+  RowBox[{"\"\<kubapod\>\"", ",", "\"\<MDataUtilities\>\""}], 
+  "]"}]], "Input",ExpressionUUID->"4def980f-0905-4f71-9f98-b3d8f9418e69"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Load", "Section",ExpressionUUID->"fd24868d-9b4f-4cbd-856c-2909bc371b07"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<<", "MDataUtilities`"}], 
+  "\n"}]], "Input",ExpressionUUID->"ca7ef49a-ca64-49a7-97bb-f464f5eaa6d4"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Examples", \
+"Section",ExpressionUUID->"d291aaf7-52f1-4c1c-bdfc-63890d5a2998"],
+
+Cell[CellGroupData[{
+
+Cell["Visualization", \
+"Subsection",ExpressionUUID->"6377a0a2-bed0-4861-8646-3d680ab283c1"],
+
+Cell[CellGroupData[{
+
+Cell["TimelineGraph", \
+"Subsubsection",ExpressionUUID->"278544b9-3f04-45b1-8897-4a8aa5661fc2"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$entities", "=", 
+   RowBox[{"CharacterRange", "[", 
+    RowBox[{"\"\<a\>\"", ",", "\"\<j\>\""}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"SeedRandom", "[", "10", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"$events", "=", 
+   RowBox[{"Table", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<date\>\"", "\[Rule]", 
+        RowBox[{
+         RowBox[{"ResourceFunction", "[", "\"\<RandomDate\>\"", "]"}], "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"DateObject", "@", 
+            RowBox[{"{", 
+             RowBox[{"2020", ",", "1", ",", "1"}], "}"}]}], ",", "Today"}], 
+          "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<entityIds\>\"", "\[Rule]", 
+        RowBox[{"RandomSample", "[", 
+         RowBox[{"$entities", ",", "2"}], "]"}]}]}], "\[IndentingNewLine]", 
+      "|>"}], ",", "\[IndentingNewLine]", "20"}], "\[IndentingNewLine]", 
+    "]"}]}], ";"}]}], "Input",
+ CellLabel->"In[21]:=",ExpressionUUID->"fc219d37-9b5f-4b04-9a35-442b7dcb6636"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TimelineGraph", "[", 
+   RowBox[{"$events", ",", " ", 
+    RowBox[{"ImageSize", " ", "->", " ", "700"}]}], "]"}], "\n"}]], "Input",
+ CellLabel->"In[24]:=",ExpressionUUID->"f0e132b1-afa5-458d-94eb-1367b2459d5f"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.368417, 0.506779, 0.709798], AbsolutePointSize[4], Thickness[
+    Large], Arrowheads[0.015], PointBox[{3.805869242327515*^9, 1}], 
+    TagBox[
+     TooltipBox[
+      ArrowBox[{{3.805869242327515*^9, 1}, {3.805869242327515*^9, 2}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> DateObject[{2020, 8, 8, 9, 54, 2.327515125274658}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"f", "h"}]], 
+        StandardForm], SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 8, 8, 9, 54, 2.327515125274658}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"f", "h"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}, 
+   {RGBColor[0.560181, 0.691569, 0.194885], AbsolutePointSize[4], Thickness[
+    Large], Arrowheads[0.015], PointBox[{3.8024139898112316`*^9, 3}], 
+    TagBox[
+     TooltipBox[
+      ArrowBox[{{3.8024139898112316`*^9, 3}, {3.8024139898112316`*^9, 4}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> DateObject[{2020, 6, 29, 10, 6, 29.81123161315918}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"i", "d"}]], 
+        StandardForm], SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 6, 29, 10, 6, 29.81123161315918}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"i", "d"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}, 
+   {RGBColor[0.528488, 0.470624, 0.701351], AbsolutePointSize[4], Thickness[
+    Large], Arrowheads[0.015], PointBox[{3.788789519892477*^9, 5}], 
+    TagBox[
+     TooltipBox[
+      ArrowBox[{{3.788789519892477*^9, 5}, {3.788789519892477*^9, 6}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> DateObject[{2020, 1, 23, 17, 31, 59.89247703552246}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"e", "c"}]], 
+        StandardForm], SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 1, 23, 17, 31, 59.89247703552246}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"e", "c"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}, 
+   {RGBColor[0.363898, 0.618501, 0.782349], AbsolutePointSize[4], Thickness[
+    Large], Arrowheads[0.015], PointBox[{3.791321039580951*^9, 7}], 
+    TagBox[
+     TooltipBox[
+      ArrowBox[{{3.791321039580951*^9, 7}, {3.791321039580951*^9, 1}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> 
+          DateObject[{2020, 2, 22, 0, 43, 59.58095121383667}, "Instant", 
+            "Gregorian", 1.], "entityIds" -> {"g", "f"}]], StandardForm], 
+       SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 2, 22, 0, 43, 59.58095121383667}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"g", "f"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}, 
+   {RGBColor[0.880722, 0.611041, 0.142051], AbsolutePointSize[4], Thickness[
+    Large], Arrowheads[0.015], PointBox[{3.786869846055044*^9, 2}], 
+    TagBox[
+     TooltipBox[
+      ArrowBox[{{3.786869846055044*^9, 2}, {3.786869846055044*^9, 5}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> DateObject[{2020, 1, 1, 12, 17, 26.055044174194336`}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"h", "e"}]], 
+        StandardForm], SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 1, 1, 12, 17, 26.055044174194336`}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"h", "e"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}, 
+   {RGBColor[1, 0.75, 0], AbsolutePointSize[4], Thickness[Large], Arrowheads[
+    0.015], PointBox[{3.7973651350953865`*^9, 8}], 
+    TagBox[
+     TooltipBox[
+      ArrowBox[{{3.7973651350953865`*^9, 8}, {3.7973651350953865`*^9, 7}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> DateObject[{2020, 5, 1, 23, 38, 55.09538650512695}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"b", "g"}]], 
+        StandardForm], SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 5, 1, 23, 38, 55.09538650512695}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"b", "g"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}, 
+   {RGBColor[0.528488, 0.470624, 0.701351], AbsolutePointSize[4], Thickness[
+    Large], Arrowheads[0.015], PointBox[{3.7916423480906363`*^9, 5}], 
+    TagBox[
+     TooltipBox[
+      ArrowBox[{{3.7916423480906363`*^9, 5}, {3.7916423480906363`*^9, 3}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> DateObject[{2020, 2, 25, 17, 59, 8.090636253356934}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"e", "i"}]], 
+        StandardForm], SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 2, 25, 17, 59, 8.090636253356934}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"e", "i"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}, 
+   {RGBColor[1, 0.75, 0], AbsolutePointSize[4], Thickness[Large], Arrowheads[
+    0.015], PointBox[{3.803415398598454*^9, 8}], 
+    TagBox[
+     TooltipBox[
+      ArrowBox[{{3.803415398598454*^9, 8}, {3.803415398598454*^9, 2}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> DateObject[{2020, 7, 11, 0, 16, 38.598453998565674`}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"b", "h"}]], 
+        StandardForm], SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 7, 11, 0, 16, 38.598453998565674`}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"b", "h"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}, 
+   {RGBColor[0.560181, 0.691569, 0.194885], AbsolutePointSize[4], Thickness[
+    Large], Arrowheads[0.015], PointBox[{3.7868874515894604`*^9, 3}], 
+    TagBox[
+     TooltipBox[
+      ArrowBox[{{3.7868874515894604`*^9, 3}, {3.7868874515894604`*^9, 9}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> DateObject[{2020, 1, 1, 17, 10, 51.589460372924805`}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"i", "j"}]], 
+        StandardForm], SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 1, 1, 17, 10, 51.589460372924805`}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"i", "j"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}, 
+   {RGBColor[0.571589, 0.586483, 0.], AbsolutePointSize[4], Thickness[Large], 
+    Arrowheads[0.015], PointBox[{3.792839996392378*^9, 10}], 
+    TagBox[
+     TooltipBox[
+      ArrowBox[{{3.792839996392378*^9, 10}, {3.792839996392378*^9, 5}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> DateObject[{2020, 3, 10, 14, 39, 56.392377853393555`}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"a", "e"}]], 
+        StandardForm], SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 3, 10, 14, 39, 56.392377853393555`}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"a", "e"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}, 
+   {RGBColor[0.880722, 0.611041, 0.142051], AbsolutePointSize[4], Thickness[
+    Large], Arrowheads[0.015], PointBox[{3.7893009798176365`*^9, 2}], 
+    TagBox[
+     TooltipBox[
+      ArrowBox[{{3.7893009798176365`*^9, 2}, {3.7893009798176365`*^9, 6}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> DateObject[{2020, 1, 29, 15, 36, 19.817636489868164`}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"h", "c"}]], 
+        StandardForm], SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 1, 29, 15, 36, 19.817636489868164`}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"h", "c"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}, 
+   {RGBColor[0.571589, 0.586483, 0.], AbsolutePointSize[4], Thickness[Large], 
+    Arrowheads[0.015], PointBox[{3.812932134647982*^9, 10}], 
+    TagBox[
+     TooltipBox[
+      ArrowBox[{{3.812932134647982*^9, 10}, {3.812932134647982*^9, 6}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> DateObject[{2020, 10, 29, 3, 48, 54.647982120513916`}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"a", "c"}]], 
+        StandardForm], SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 10, 29, 3, 48, 54.647982120513916`}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"a", "c"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}, 
+   {RGBColor[0.571589, 0.586483, 0.], AbsolutePointSize[4], Thickness[Large], 
+    Arrowheads[0.015], PointBox[{3.812576556831518*^9, 10}], 
+    TagBox[
+     TooltipBox[
+      ArrowBox[{{3.812576556831518*^9, 10}, {3.812576556831518*^9, 9}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> DateObject[{2020, 10, 25, 1, 2, 36.83151817321777}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"a", "j"}]], 
+        StandardForm], SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 10, 25, 1, 2, 36.83151817321777}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"a", "j"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}, 
+   {RGBColor[0.528488, 0.470624, 0.701351], AbsolutePointSize[4], Thickness[
+    Large], Arrowheads[0.015], PointBox[{3.8074674136473603`*^9, 5}], 
+    TagBox[
+     TooltipBox[
+      ArrowBox[{{3.8074674136473603`*^9, 5}, {3.8074674136473603`*^9, 2}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> DateObject[{2020, 8, 26, 21, 50, 13.64736032485962}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"e", "h"}]], 
+        StandardForm], SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 8, 26, 21, 50, 13.64736032485962}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"e", "h"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}, 
+   {RGBColor[1, 0.75, 0], AbsolutePointSize[4], Thickness[Large], Arrowheads[
+    0.015], PointBox[{3.801718194790665*^9, 8}], 
+    TagBox[
+     TooltipBox[
+      ArrowBox[{{3.801718194790665*^9, 8}, {3.801718194790665*^9, 7}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> DateObject[{2020, 6, 21, 8, 49, 54.79066514968872}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"b", "g"}]], 
+        StandardForm], SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 6, 21, 8, 49, 54.79066514968872}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"b", "g"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}, 
+   {RGBColor[0.363898, 0.618501, 0.782349], AbsolutePointSize[4], Thickness[
+    Large], Arrowheads[0.015], PointBox[{3.8049220757629085`*^9, 7}], 
+    TagBox[
+     TooltipBox[
+      ArrowBox[{{3.8049220757629085`*^9, 7}, {3.8049220757629085`*^9, 1}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> DateObject[{2020, 7, 28, 10, 47, 55.76290845870972}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"g", "f"}]], 
+        StandardForm], SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 7, 28, 10, 47, 55.76290845870972}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"g", "f"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}, 
+   {RGBColor[0.368417, 0.506779, 0.709798], AbsolutePointSize[4], Thickness[
+    Large], Arrowheads[0.015], PointBox[{3.787777509552344*^9, 1}], 
+    TagBox[
+     TooltipBox[
+      ArrowBox[{{3.787777509552344*^9, 1}, {3.787777509552344*^9, 6}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> DateObject[{2020, 1, 12, 0, 25, 9.552343845367432}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"f", "c"}]], 
+        StandardForm], SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 1, 12, 0, 25, 9.552343845367432}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"f", "c"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}, 
+   {RGBColor[0.560181, 0.691569, 0.194885], AbsolutePointSize[4], Thickness[
+    Large], Arrowheads[0.015], PointBox[{3.81335113442806*^9, 3}], 
+    TagBox[
+     TooltipBox[ArrowBox[{{3.81335113442806*^9, 3}, {3.81335113442806*^9, 7}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> DateObject[{2020, 11, 3, 0, 12, 14.428060054779053`}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"i", "g"}]], 
+        StandardForm], SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 11, 3, 0, 12, 14.428060054779053`}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"i", "g"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}, 
+   {RGBColor[0.880722, 0.611041, 0.142051], AbsolutePointSize[4], Thickness[
+    Large], Arrowheads[0.015], PointBox[{3.792166090754491*^9, 2}], 
+    TagBox[
+     TooltipBox[
+      ArrowBox[{{3.792166090754491*^9, 2}, {3.792166090754491*^9, 9}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> DateObject[{2020, 3, 2, 19, 28, 10.754490852355957`}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"h", "j"}]], 
+        StandardForm], SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 3, 2, 19, 28, 10.754490852355957`}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"h", "j"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}, 
+   {RGBColor[0.647624, 0.37816, 0.614037], AbsolutePointSize[4], Thickness[
+    Large], Arrowheads[0.015], PointBox[{3.8012402771293826`*^9, 9}], 
+    TagBox[
+     TooltipBox[
+      ArrowBox[{{3.8012402771293826`*^9, 9}, {3.8012402771293826`*^9, 4}}],
+      DynamicBox[
+       ToBoxes[
+        Dataset[
+         Association[
+         "date" -> DateObject[{2020, 6, 15, 20, 4, 37.129382610321045`}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"j", "d"}]], 
+        StandardForm], SingleEvaluation -> True]],
+     Annotation[#, 
+      Dynamic[
+       Dataset[
+        Association[
+        "date" -> DateObject[{2020, 6, 15, 20, 4, 37.129382610321045`}, 
+           "Instant", "Gregorian", 1.], "entityIds" -> {"j", "d"}]], 
+       SingleEvaluation -> True], "Tooltip"]& ]}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->False,
+  BaseStyle->"Subsection",
+  Frame->True,
+  FrameTicks->FrontEndValueCache[{{None, {{1, 
+        FormBox[
+         StyleBox["\"f\"", 
+          RGBColor[0.368417, 0.506779, 0.709798], StripOnInput -> False], 
+         TraditionalForm]}, {2, 
+        FormBox[
+         StyleBox["\"h\"", 
+          RGBColor[0.880722, 0.611041, 0.142051], StripOnInput -> False], 
+         TraditionalForm]}, {3, 
+        FormBox[
+         StyleBox["\"i\"", 
+          RGBColor[0.560181, 0.691569, 0.194885], StripOnInput -> False], 
+         TraditionalForm]}, {4, 
+        FormBox[
+         StyleBox["\"d\"", 
+          RGBColor[0.922526, 0.385626, 0.209179], StripOnInput -> False], 
+         TraditionalForm]}, {5, 
+        FormBox[
+         StyleBox["\"e\"", 
+          RGBColor[0.528488, 0.470624, 0.701351], StripOnInput -> False], 
+         TraditionalForm]}, {6, 
+        FormBox[
+         StyleBox["\"c\"", 
+          RGBColor[0.772079, 0.431554, 0.102387], StripOnInput -> False], 
+         TraditionalForm]}, {7, 
+        FormBox[
+         StyleBox["\"g\"", 
+          RGBColor[0.363898, 0.618501, 0.782349], StripOnInput -> False], 
+         TraditionalForm]}, {8, 
+        FormBox[
+         StyleBox["\"b\"", 
+          RGBColor[1, 0.75, 0], StripOnInput -> False], TraditionalForm]}, {9, 
+        FormBox[
+         StyleBox["\"j\"", 
+          RGBColor[0.647624, 0.37816, 0.614037], StripOnInput -> False], 
+         TraditionalForm]}, {10, 
+        FormBox[
+         StyleBox["\"a\"", 
+          RGBColor[0.571589, 0.586483, 0.], StripOnInput -> False], 
+         TraditionalForm]}}}, {Charting`getDateTicks[Automatic, {Automatic}, 
+       (Map[DateList, {
+         SlotSequence[1]}]& )[
+        SlotSequence[1]], None, 9, {{0.01, 0}, {0.005, 0}}, Automatic]& , 
+      Automatic}}, {{None, {{1., 
+        FormBox[
+         StyleBox["\"f\"", 
+          RGBColor[0.368417, 0.506779, 0.709798], StripOnInput -> False], 
+         TraditionalForm]}, {2., 
+        FormBox[
+         StyleBox["\"h\"", 
+          RGBColor[0.880722, 0.611041, 0.142051], StripOnInput -> False], 
+         TraditionalForm]}, {3., 
+        FormBox[
+         StyleBox["\"i\"", 
+          RGBColor[0.560181, 0.691569, 0.194885], StripOnInput -> False], 
+         TraditionalForm]}, {4., 
+        FormBox[
+         StyleBox["\"d\"", 
+          RGBColor[0.922526, 0.385626, 0.209179], StripOnInput -> False], 
+         TraditionalForm]}, {5., 
+        FormBox[
+         StyleBox["\"e\"", 
+          RGBColor[0.528488, 0.470624, 0.701351], StripOnInput -> False], 
+         TraditionalForm]}, {6., 
+        FormBox[
+         StyleBox["\"c\"", 
+          RGBColor[0.772079, 0.431554, 0.102387], StripOnInput -> False], 
+         TraditionalForm]}, {7., 
+        FormBox[
+         StyleBox["\"g\"", 
+          RGBColor[0.363898, 0.618501, 0.782349], StripOnInput -> False], 
+         TraditionalForm]}, {8., 
+        FormBox[
+         StyleBox["\"b\"", 
+          RGBColor[1., 0.75, 0.], StripOnInput -> False], TraditionalForm]}, {
+       9., 
+        FormBox[
+         StyleBox["\"j\"", 
+          RGBColor[0.647624, 0.37816, 0.614037], StripOnInput -> False], 
+         TraditionalForm]}, {10., 
+        FormBox[
+         StyleBox["\"a\"", 
+          RGBColor[0.571589, 0.586483, 0.], StripOnInput -> False], 
+         TraditionalForm]}}}, {{{3.7815552*^9, 
+        FormBox["\"Nov\"", TraditionalForm], {0.006666666666666666, 0.}}, {
+       3.7868256*^9, 
+        FormBox["\"Jan\"", TraditionalForm], {0.006666666666666666, 0.}}, {
+       3.7920096*^9, 
+        FormBox["\"Mar\"", TraditionalForm], {0.006666666666666666, 0.}}, {
+       3.79728*^9, 
+        FormBox["\"May\"", TraditionalForm], {0.006666666666666666, 0.}}, {
+       3.8025504*^9, 
+        FormBox["\"Jul\"", TraditionalForm], {0.006666666666666666, 0.}}, {
+       3.8079072*^9, 
+        FormBox["\"Sep\"", TraditionalForm], {0.006666666666666666, 0.}}, {
+       3.8131776*^9, 
+        FormBox["\"Nov\"", TraditionalForm], {0.006666666666666666, 0.}}, {
+       3.818448*^9, 
+        FormBox["\"Jan\"", TraditionalForm], {0.006666666666666666, 0.}}, {
+       3.7815552*^9, 
+        FormBox[
+         TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {
+        0.006666666666666666, 0.}}, {3.7841472*^9, 
+        FormBox[
+         TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {
+        0.006666666666666666, 0.}}, {3.7868256*^9, 
+        FormBox[
+         TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {
+        0.006666666666666666, 0.}}, {3.789504*^9, 
+        FormBox[
+         TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {
+        0.006666666666666666, 0.}}, {3.7920096*^9, 
+        FormBox[
+         TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {
+        0.006666666666666666, 0.}}, {3.794688*^9, 
+        FormBox[
+         TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {
+        0.006666666666666666, 0.}}, {3.79728*^9, 
+        FormBox[
+         TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {
+        0.006666666666666666, 0.}}, {3.7999584*^9, 
+        FormBox[
+         TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {
+        0.006666666666666666, 0.}}, {3.8025504*^9, 
+        FormBox[
+         TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {
+        0.006666666666666666, 0.}}, {3.8052288*^9, 
+        FormBox[
+         TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {
+        0.006666666666666666, 0.}}, {3.8079072*^9, 
+        FormBox[
+         TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {
+        0.006666666666666666, 0.}}, {3.8104992*^9, 
+        FormBox[
+         TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {
+        0.006666666666666666, 0.}}, {3.8131776*^9, 
+        FormBox[
+         TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {
+        0.006666666666666666, 0.}}}, Automatic}}],
+  GridLines->{Automatic, {{1, 
+      RGBColor[0.368417, 0.506779, 0.709798]}, {2, 
+      RGBColor[0.880722, 0.611041, 0.142051]}, {3, 
+      RGBColor[0.560181, 0.691569, 0.194885]}, {4, 
+      RGBColor[0.922526, 0.385626, 0.209179]}, {5, 
+      RGBColor[0.528488, 0.470624, 0.701351]}, {6, 
+      RGBColor[0.772079, 0.431554, 0.102387]}, {7, 
+      RGBColor[0.363898, 0.618501, 0.782349]}, {8, 
+      RGBColor[1, 0.75, 0]}, {9, 
+      RGBColor[0.647624, 0.37816, 0.614037]}, {10, 
+      RGBColor[0.571589, 0.586483, 0.]}}},
+  GridLinesStyle->{
+    GrayLevel[0.9], 
+    Thickness[0.002]},
+  ImageSize->700,
+  PlotRange->{All, {1, 10}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{
+    Scaled[0.05], 1}]], "Output",
+ CellLabel->"Out[24]=",ExpressionUUID->"72dd01b0-fcad-497f-9952-88e2d7e79b43"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Wrangling", \
+"Subsection",ExpressionUUID->"e999095f-4087-4b4f-8822-1e96b488f7b4"],
+
+Cell[CellGroupData[{
+
+Cell["GroupByMerge", \
+"Subsubsection",ExpressionUUID->"4233f9da-e7f1-4725-8248-5613d8ca972c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"$dataset", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<a\>\"", "\[Rule]", "1"}], ",", 
+        RowBox[{"\"\<c\>\"", "\[Rule]", "2"}]}], "|>"}], ",", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<a\>\"", "\[Rule]", "1"}], ",", 
+        RowBox[{"\"\<b\>\"", "\[Rule]", "2"}]}], "|>"}], ",", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<a\>\"", "\[Rule]", "2"}], ",", 
+        RowBox[{"\"\<c\>\"", "\[Rule]", "1"}]}], "|>"}]}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"GroupByMerge", "[", 
+  RowBox[{"$dataset", ",", 
+   RowBox[{"Key", "[", "\"\<a\>\"", "]"}], ",", "First"}], "]"}]}], "Input",
+ CellLabel->"In[25]:=",ExpressionUUID->"1078d701-25d6-4aa1-9cdb-edde7b14de34"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"a\"\>", "\[Rule]", "1"}], ",", 
+     RowBox[{"\<\"c\"\>", "\[Rule]", "2"}], ",", 
+     RowBox[{"\<\"b\"\>", "\[Rule]", "2"}]}], "\[RightAssociation]"}], ",", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"a\"\>", "\[Rule]", "2"}], ",", 
+     RowBox[{"\<\"c\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[26]=",ExpressionUUID->"c1a88c60-1de5-41f8-af25-a70affd885ae"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["EnumerateRecords", \
+"Subsubsection",ExpressionUUID->"6c85ef09-1c0a-4761-9a15-c60f9d629a11"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"EnumerateRecords", "@", "$dataset"}]], "Input",
+ CellLabel->"In[27]:=",ExpressionUUID->"295b0832-2d26-49e3-97a5-519e6e2fe03b"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"a\"\>", "\[Rule]", "1"}], ",", 
+     RowBox[{"\<\"c\"\>", "\[Rule]", "2"}], ",", 
+     RowBox[{"\<\"index\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}], 
+   ",", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"a\"\>", "\[Rule]", "1"}], ",", 
+     RowBox[{"\<\"b\"\>", "\[Rule]", "2"}], ",", 
+     RowBox[{"\<\"index\"\>", "\[Rule]", "2"}]}], "\[RightAssociation]"}], 
+   ",", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"a\"\>", "\[Rule]", "2"}], ",", 
+     RowBox[{"\<\"c\"\>", "\[Rule]", "1"}], ",", 
+     RowBox[{"\<\"index\"\>", "\[Rule]", "3"}]}], "\[RightAssociation]"}]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[27]=",ExpressionUUID->"c19664c4-25f6-434d-8bd9-3df2c7199f9d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"EnumerateRecords", "[", 
+  RowBox[{"$dataset", ",", "\"\<pos\>\""}], "]"}]], "Input",
+ CellLabel->"In[28]:=",ExpressionUUID->"3fe57a27-bcd7-44c1-8805-1e6c5a776108"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"a\"\>", "\[Rule]", "1"}], ",", 
+     RowBox[{"\<\"c\"\>", "\[Rule]", "2"}], ",", 
+     RowBox[{"\<\"pos\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}], ",", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"a\"\>", "\[Rule]", "1"}], ",", 
+     RowBox[{"\<\"b\"\>", "\[Rule]", "2"}], ",", 
+     RowBox[{"\<\"pos\"\>", "\[Rule]", "2"}]}], "\[RightAssociation]"}], ",", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"a\"\>", "\[Rule]", "2"}], ",", 
+     RowBox[{"\<\"c\"\>", "\[Rule]", "1"}], ",", 
+     RowBox[{"\<\"pos\"\>", "\[Rule]", "3"}]}], "\[RightAssociation]"}]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[28]=",ExpressionUUID->"9e122a74-0166-41f9-a458-e787b6c5cdf1"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["ApplyKeyAdd", \
+"Subsubsection",ExpressionUUID->"524ceb6b-d804-4194-aef3-0ecd017ff272"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ApplyKeyAdd", "[", 
+   RowBox[{"\"\<x\>\"", "\[Rule]", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"#a", "^", "2"}], "&"}], ")"}]}], "]"}], "/@", 
+  "$dataset"}]], "Input",
+ CellLabel->"In[29]:=",ExpressionUUID->"c7bd7a1a-0112-4f09-a3de-0a04e4c63dc5"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"a\"\>", "\[Rule]", "1"}], ",", 
+     RowBox[{"\<\"c\"\>", "\[Rule]", "2"}], ",", 
+     RowBox[{"\<\"x\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}], ",", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"a\"\>", "\[Rule]", "1"}], ",", 
+     RowBox[{"\<\"b\"\>", "\[Rule]", "2"}], ",", 
+     RowBox[{"\<\"x\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}], ",", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"a\"\>", "\[Rule]", "2"}], ",", 
+     RowBox[{"\<\"c\"\>", "\[Rule]", "1"}], ",", 
+     RowBox[{"\<\"x\"\>", "\[Rule]", "4"}]}], "\[RightAssociation]"}]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[29]=",ExpressionUUID->"bf0add3d-b3eb-4edd-94a9-104786d29bb2"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["DateTools", \
+"Subsection",ExpressionUUID->"206b717a-5fde-471f-a488-6626d9d034cc"],
+
+Cell[CellGroupData[{
+
+Cell["DateHistogramList ", \
+"Subsubsection",ExpressionUUID->"02c3d397-a71f-4a02-b980-65b529dad27f"],
+
+Cell["\<\
+Nothing fancy, just using internal \
+``System`TimeVisualizationsDump`dateHistogramBinning``.\
+\>", "Text",ExpressionUUID->"fa55a8bd-923c-40cd-a489-5e4b89bce045"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$dates", "=", 
+   RowBox[{"AbsoluteTime", "/@", 
+    RowBox[{"RandomChoice", "[", 
+     RowBox[{
+      RowBox[{"DateRange", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"2010", ",", "1", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"2010", ",", "5", ",", "31"}], "}"}], ",", "\"\<Day\>\""}], 
+       "]"}], ",", "200"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"$bSpec", "=", "\"\<Month\>\""}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"$dhl", "=", 
+  RowBox[{"DateHistogramList", "[", 
+   RowBox[{"$dates", ",", "$bSpec"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.815390343356346*^9, 3.8153905032186227`*^9}},
+ CellLabel->"In[85]:=",ExpressionUUID->"0702651e-b903-45ec-af38-8e7026dfb1a0"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "3471292800", ",", "3473971200", ",", "3476390400", ",", "3479068800", 
+     ",", "3481660800", ",", "3484339200"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"40", ",", "39", ",", "37", ",", "36", ",", "48"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.815390519915245*^9},
+ CellLabel->"Out[87]=",ExpressionUUID->"abcccfe3-e5bf-4b7d-b375-3ea6df03363c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Row", "@", 
+  RowBox[{"{", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"BarChart", "[", 
+     RowBox[{
+      RowBox[{"$dhl", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], ",", 
+      RowBox[{"ChartLabels", "\[Rule]", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"DateString", "[", 
+           RowBox[{"#", ",", "\"\<MonthName\>\""}], "]"}], "&"}], "/@", 
+         RowBox[{"$dhl", "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ")"}]}], ",", 
+      RowBox[{"ImageSize", "\[Rule]", "360"}]}], "]"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"DateHistogram", "[", 
+     RowBox[{"$dates", ",", "$bSpec", ",", 
+      RowBox[{"ImageSize", "\[Rule]", "360"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "}"}]}]], "Input",
+ CellChangeTimes->{{3.815390343356346*^9, 3.8153905154101*^9}},
+ CellLabel->"In[84]:=",ExpressionUUID->"8ac5799c-968d-453c-9b71-b679b167a43b"],
+
+Cell[BoxData[
+ TemplateBox[{
+   GraphicsBox[{{
+      Opacity[0], 
+      PointBox[{{0.45075018208302986`, 0.}, {5.451201747997087, 0.}}]}, {{}, {
+       Directive[
+        EdgeForm[
+         Directive[
+          Thickness[Small], 
+          Opacity[0.6649999999999999]]], 
+        RGBColor[0.982864, 0.7431472, 0.3262672]], {{
+         Directive[
+          EdgeForm[
+           Directive[
+            Thickness[Small], 
+            Opacity[0.6649999999999999]]], 
+          RGBColor[0.982864, 0.7431472, 0.3262672]], 
+         TagBox[
+          TooltipBox[
+           TagBox[
+            TagBox[
+             DynamicBox[{
+               FEPrivate`If[
+                CurrentValue["MouseOver"], 
+                EdgeForm[{
+                  GrayLevel[0.5], 
+                  AbsoluteThickness[1.5], 
+                  Opacity[0.66]}], {}, {}], 
+               
+               RectangleBox[{0.5487982520029133, 0.}, {1.4512017479970867`, 
+                50.}, "RoundingRadius" -> 0]}], "DelayedMouseEffectStyle"], 
+            StatusArea[#, 50]& , TagBoxNote -> "50"], 
+           StyleBox["50", {}, StripOnInput -> False]], Annotation[#, 
+           Style[50, {}], "Tooltip"]& ]}, {
+         Directive[
+          EdgeForm[
+           Directive[
+            Thickness[Small], 
+            Opacity[0.6649999999999999]]], 
+          RGBColor[0.982864, 0.7431472, 0.3262672]], 
+         TagBox[
+          TooltipBox[
+           TagBox[
+            TagBox[
+             DynamicBox[{
+               FEPrivate`If[
+                CurrentValue["MouseOver"], 
+                EdgeForm[{
+                  GrayLevel[0.5], 
+                  AbsoluteThickness[1.5], 
+                  Opacity[0.66]}], {}, {}], 
+               
+               RectangleBox[{1.5487982520029133`, 0.}, {2.4512017479970867`, 
+                37.}, "RoundingRadius" -> 0]}], "DelayedMouseEffectStyle"], 
+            StatusArea[#, 37]& , TagBoxNote -> "37"], 
+           StyleBox["37", {}, StripOnInput -> False]], Annotation[#, 
+           Style[37, {}], "Tooltip"]& ]}, {
+         Directive[
+          EdgeForm[
+           Directive[
+            Thickness[Small], 
+            Opacity[0.6649999999999999]]], 
+          RGBColor[0.982864, 0.7431472, 0.3262672]], 
+         TagBox[
+          TooltipBox[
+           TagBox[
+            TagBox[
+             DynamicBox[{
+               FEPrivate`If[
+                CurrentValue["MouseOver"], 
+                EdgeForm[{
+                  GrayLevel[0.5], 
+                  AbsoluteThickness[1.5], 
+                  Opacity[0.66]}], {}, {}], 
+               
+               RectangleBox[{2.5487982520029133`, 0.}, {3.4512017479970867`, 
+                34.}, "RoundingRadius" -> 0]}], "DelayedMouseEffectStyle"], 
+            StatusArea[#, 34]& , TagBoxNote -> "34"], 
+           StyleBox["34", {}, StripOnInput -> False]], Annotation[#, 
+           Style[34, {}], "Tooltip"]& ]}, {
+         Directive[
+          EdgeForm[
+           Directive[
+            Thickness[Small], 
+            Opacity[0.6649999999999999]]], 
+          RGBColor[0.982864, 0.7431472, 0.3262672]], 
+         TagBox[
+          TooltipBox[
+           TagBox[
+            TagBox[
+             DynamicBox[{
+               FEPrivate`If[
+                CurrentValue["MouseOver"], 
+                EdgeForm[{
+                  GrayLevel[0.5], 
+                  AbsoluteThickness[1.5], 
+                  Opacity[0.66]}], {}, {}], 
+               
+               RectangleBox[{3.5487982520029133`, 0.}, {4.451201747997087, 
+                39.}, "RoundingRadius" -> 0]}], "DelayedMouseEffectStyle"], 
+            StatusArea[#, 39]& , TagBoxNote -> "39"], 
+           StyleBox["39", {}, StripOnInput -> False]], Annotation[#, 
+           Style[39, {}], "Tooltip"]& ]}, {
+         Directive[
+          EdgeForm[
+           Directive[
+            Thickness[Small], 
+            Opacity[0.6649999999999999]]], 
+          RGBColor[0.982864, 0.7431472, 0.3262672]], 
+         TagBox[
+          TooltipBox[
+           TagBox[
+            TagBox[
+             DynamicBox[{
+               FEPrivate`If[
+                CurrentValue["MouseOver"], 
+                EdgeForm[{
+                  GrayLevel[0.5], 
+                  AbsoluteThickness[1.5], 
+                  Opacity[0.66]}], {}, {}], 
+               
+               RectangleBox[{4.548798252002913, 0.}, {5.451201747997087, 40.},
+                 "RoundingRadius" -> 0]}], "DelayedMouseEffectStyle"], 
+            StatusArea[#, 40]& , TagBoxNote -> "40"], 
+           StyleBox["40", {}, StripOnInput -> False]], Annotation[#, 
+           Style[40, {}], "Tooltip"]& ]}}}, {}, {}}, {}, {}, {}, {}, {
+      StyleBox[{Antialiasing -> False, {
+         Directive[
+          Thickness[Tiny]], {
+          LineBox[{{0.45075018208302986`, 0.}, {5.551210779315368, 0.}}]}, 
+         StyleBox[{}, {"GraphicsLabel"}, StripOnInput -> False]}, 
+        StyleBox[{{
+           Directive[
+            Thickness[Tiny]], 
+           LineBox[{{0.5487982520029133, 0.}, 
+             
+             Offset[{-1.102182119232618*^-15, -6.}, {0.5487982520029133, 
+              0.}]}], 
+           LineBox[{{5.451201747997087, 0.}, 
+             
+             Offset[{-1.102182119232618*^-15, -6.}, {5.451201747997087, 
+              0.}]}], {{}, {}, {}, {}, {}, {
+             LineBox[{{1.4512017479970867`, 0.}, 
+               
+               Offset[{-7.347880794884119*^-16, -4.}, {1.4512017479970867`, 
+                0.}]}], 
+             LineBox[{{1.5487982520029133`, 0.}, 
+               
+               Offset[{-7.347880794884119*^-16, -4.}, {1.5487982520029133`, 
+                0.}]}], 
+             LineBox[{{2.4512017479970867`, 0.}, 
+               
+               Offset[{-7.347880794884119*^-16, -4.}, {2.4512017479970867`, 
+                0.}]}], 
+             LineBox[{{2.5487982520029133`, 0.}, 
+               
+               Offset[{-7.347880794884119*^-16, -4.}, {2.5487982520029133`, 
+                0.}]}], 
+             LineBox[{{3.4512017479970867`, 0.}, 
+               Offset[{-7.347880794884119*^-16, -4.}, {3.4512017479970867`, 
+                0.}]}], 
+             LineBox[{{3.5487982520029133`, 0.}, 
+               
+               Offset[{-7.347880794884119*^-16, -4.}, {3.5487982520029133`, 
+                0.}]}], 
+             LineBox[{{4.451201747997087, 0.}, 
+               
+               Offset[{-7.347880794884119*^-16, -4.}, {4.451201747997087, 
+                0.}]}], 
+             LineBox[{{4.548798252002913, 0.}, 
+               
+               Offset[{-7.347880794884119*^-16, -4.}, {4.548798252002913, 
+                0.}]}]}, {}}}, 
+          StyleBox[{
+            Directive[
+             Thickness[Tiny]], 
+            Directive[
+             Thickness[Tiny]], 
+            StyleBox[{
+              InsetBox[
+               FormBox["\"January\"", TraditionalForm], 
+               Offset[{0, -2}, {1., 0.}], 
+               ImageScaled[{
+                 Rational[1, 2], 1}], Automatic, {1, 0}], 
+              InsetBox[
+               FormBox["\"February\"", TraditionalForm], 
+               Offset[{0, -2}, {2., 0.}], 
+               ImageScaled[{
+                 Rational[1, 2], 1}], Automatic, {1, 0}], 
+              InsetBox[
+               FormBox["\"March\"", TraditionalForm], 
+               Offset[{0, -2}, {3., 0.}], 
+               ImageScaled[{
+                 Rational[1, 2], 1}], Automatic, {1, 0}], 
+              InsetBox[
+               FormBox["\"April\"", TraditionalForm], 
+               Offset[{0, -2}, {4., 0.}], 
+               ImageScaled[{
+                 Rational[1, 2], 1}], Automatic, {1, 0}], 
+              InsetBox[
+               FormBox["\"May\"", TraditionalForm], 
+               Offset[{0, -2}, {5., 0.}], 
+               ImageScaled[{
+                 Rational[1, 2], 1}], Automatic, {1, 0}]}, {{}}, StripOnInput -> 
+             False]}, {"GraphicsLabel"}, StripOnInput -> False]}, {
+         "GraphicsTicks"}, StripOnInput -> False]}, {"GraphicsAxes"}, 
+       StripOnInput -> False]}}, {
+    DisplayFunction -> Identity, AspectRatio -> 
+     NCache[GoldenRatio^(-1), 0.6180339887498948], Axes -> {False, True}, 
+     AxesLabel -> {None, None}, AxesOrigin -> {0.45075018208302986`, 0.}, 
+     CoordinatesToolOptions -> {"DisplayFunction" -> ({
+         Identity[
+          Part[#, 1]], 
+         Identity[
+          Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+         Identity[
+          Part[#, 1]], 
+         Identity[
+          Part[#, 2]]}& )}, FrameLabel -> {{None, None}, {None, None}}, 
+     FrameTicks -> {{Automatic, Automatic}, {Automatic, Automatic}}, 
+     GridLines -> {None, None}, GridLinesStyle -> Directive[
+       GrayLevel[0.5, 0.4]], ImageSize -> 360, 
+     PlotRange -> {{All, All}, {All, All}}, PlotRangePadding -> {{
+        Scaled[0.02], 
+        Scaled[0.02]}, {
+        Scaled[0.02], 
+        Scaled[0.05]}}, Ticks -> {None, Automatic}}], 
+   GraphicsBox[{{{
+       Directive[
+        EdgeForm[
+         Directive[
+          Thickness[Small], 
+          Opacity[0.651]]], 
+        RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`]], {{}, {
+         Directive[
+          EdgeForm[
+           Directive[
+            Thickness[Small], 
+            Opacity[0.651]]], 
+          RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`]], {{
+           TagBox[
+            TooltipBox[
+             TagBox[{
+               TagBox[
+                DynamicBox[{
+                  FEPrivate`If[
+                   CurrentValue["MouseOver"], 
+                   EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                  
+                  RectangleBox[{3.4712928*^9, 0}, {3.4739712*^9, 50.}, 
+                   "RoundingRadius" -> 0]}], "DelayedMouseEffectStyle"]}, 
+              StatusArea[#, 50]& , TagBoxNote -> "50"], 
+             StyleBox["50", {}, StripOnInput -> False]], Annotation[#, 
+             Style[50, {}], "Tooltip"]& ]}, {
+           TagBox[
+            TooltipBox[
+             TagBox[{
+               TagBox[
+                DynamicBox[{
+                  FEPrivate`If[
+                   CurrentValue["MouseOver"], 
+                   EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                  
+                  RectangleBox[{3.4739712*^9, 0}, {3.4763904*^9, 37.}, 
+                   "RoundingRadius" -> 0]}], "DelayedMouseEffectStyle"]}, 
+              StatusArea[#, 37]& , TagBoxNote -> "37"], 
+             StyleBox["37", {}, StripOnInput -> False]], Annotation[#, 
+             Style[37, {}], "Tooltip"]& ]}, {
+           TagBox[
+            TooltipBox[
+             TagBox[{
+               TagBox[
+                DynamicBox[{
+                  FEPrivate`If[
+                   CurrentValue["MouseOver"], 
+                   EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                  
+                  RectangleBox[{3.4763904*^9, 0}, {3.4790688*^9, 34.}, 
+                   "RoundingRadius" -> 0]}], "DelayedMouseEffectStyle"]}, 
+              StatusArea[#, 34]& , TagBoxNote -> "34"], 
+             StyleBox["34", {}, StripOnInput -> False]], Annotation[#, 
+             Style[34, {}], "Tooltip"]& ]}, {
+           TagBox[
+            TooltipBox[
+             TagBox[{
+               TagBox[
+                DynamicBox[{
+                  FEPrivate`If[
+                   CurrentValue["MouseOver"], 
+                   EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                  
+                  RectangleBox[{3.4790688*^9, 0}, {3.4816608*^9, 39.}, 
+                   "RoundingRadius" -> 0]}], "DelayedMouseEffectStyle"]}, 
+              StatusArea[#, 39]& , TagBoxNote -> "39"], 
+             StyleBox["39", {}, StripOnInput -> False]], Annotation[#, 
+             Style[39, {}], "Tooltip"]& ]}, {
+           TagBox[
+            TooltipBox[
+             TagBox[{
+               TagBox[
+                DynamicBox[{
+                  FEPrivate`If[
+                   CurrentValue["MouseOver"], 
+                   EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                  
+                  RectangleBox[{3.4816608*^9, 0}, {3.4843392*^9, 40.}, 
+                   "RoundingRadius" -> 0]}], "DelayedMouseEffectStyle"]}, 
+              StatusArea[#, 40]& , TagBoxNote -> "40"], 
+             StyleBox["40", {}, StripOnInput -> False]], Annotation[#, 
+             Style[40, {}], 
+             "Tooltip"]& ]}}}, {}, {}}}, {{}, {}, {}, {}, {}}}, {{}, 
+      StyleBox[{Antialiasing -> False, {{}, {
+          LineBox[{{3.4712928*^9, 0}, {3.4843392*^9, 0}}]}, 
+         StyleBox[{}, {"GraphicsLabel"}, StripOnInput -> False]}, 
+        StyleBox[{{
+           Directive[], 
+           LineBox[{{3.4712928*^9, 0}, 
+             Offset[{-1.4695761589768238`*^-15, -8.}, {3.4712928*^9, 0}]}], 
+           LineBox[{{3.4843392*^9, 0}, 
+             
+             Offset[{-1.4695761589768238`*^-15, -8.}, {
+              3.4843392*^9, 0}]}], {{}, {}, {}, {}, {}, {
+             LineBox[{{3.4739712*^9, 0}, 
+               Offset[{-7.347880794884119*^-16, -4.}, {3.4739712*^9, 0}]}], 
+             LineBox[{{3.4739712*^9, 0}, 
+               Offset[{-7.347880794884119*^-16, -4.}, {3.4739712*^9, 0}]}], 
+             LineBox[{{3.4763904*^9, 0}, 
+               Offset[{-7.347880794884119*^-16, -4.}, {3.4763904*^9, 0}]}], 
+             LineBox[{{3.4763904*^9, 0}, 
+               Offset[{-7.347880794884119*^-16, -4.}, {3.4763904*^9, 0}]}], 
+             LineBox[{{3.4790688*^9, 0}, 
+               Offset[{-7.347880794884119*^-16, -4.}, {3.4790688*^9, 0}]}], 
+             LineBox[{{3.4790688*^9, 0}, 
+               Offset[{-7.347880794884119*^-16, -4.}, {3.4790688*^9, 0}]}], 
+             LineBox[{{3.4816608*^9, 0}, 
+               Offset[{-7.347880794884119*^-16, -4.}, {3.4816608*^9, 0}]}], 
+             LineBox[{{3.4816608*^9, 0}, 
+               Offset[{-7.347880794884119*^-16, -4.}, {3.4816608*^9, 0}]}]}}}, 
+          StyleBox[{{}, 
+            Directive[], 
+            StyleBox[{
+              InsetBox[
+               FormBox["\"January\"", TraditionalForm], 
+               Offset[{0, -2}, {3.472632*^9, 0}], 
+               ImageScaled[{
+                 Rational[1, 2], 1}], Automatic, {1, 0}], 
+              InsetBox[
+               FormBox["\"February\"", TraditionalForm], 
+               Offset[{0, -2}, {3.4751808*^9, 0}], 
+               ImageScaled[{
+                 Rational[1, 2], 1}], Automatic, {1, 0}], 
+              InsetBox[
+               FormBox["\"March\"", TraditionalForm], 
+               Offset[{0, -2}, {3.4777296*^9, 0}], 
+               ImageScaled[{
+                 Rational[1, 2], 1}], Automatic, {1, 0}], 
+              InsetBox[
+               FormBox["\"April\"", TraditionalForm], 
+               Offset[{0, -2}, {3.4803648*^9, 0}], 
+               ImageScaled[{
+                 Rational[1, 2], 1}], Automatic, {1, 0}], 
+              InsetBox[
+               FormBox["\"May\"", TraditionalForm], 
+               Offset[{0, -2}, {3.483*^9, 0}], 
+               ImageScaled[{
+                 Rational[1, 2], 1}], Automatic, {1, 0}]}, {{}}, StripOnInput -> 
+             False]}, {"GraphicsLabel"}, StripOnInput -> False]}, {
+         "GraphicsTicks"}, StripOnInput -> False]}, {"GraphicsAxes"}, 
+       StripOnInput -> False]}}, {
+    AspectRatio -> NCache[GoldenRatio^(-1), 0.6180339887498948], 
+     Axes -> {False, True}, AxesLabel -> {None, None}, 
+     AxesOrigin -> {3.471031872*^9, 0}, 
+     FrameLabel -> {{None, None}, {None, None}}, 
+     FrameTicks -> {{Automatic, Automatic}, {None, Automatic}}, 
+     GridLines -> {None, None}, GridLinesStyle -> Directive[
+       GrayLevel[0.5, 0.4]], ImageSize -> 360, 
+     PlotRange -> {{3.4712928*^9, 3.4843392*^9}, {All, All}}, 
+     PlotRangePadding -> {{
+        Scaled[0.02], 
+        Scaled[0.02]}, {
+        Scaled[0.02], 
+        Scaled[0.05]}}, Ticks -> {Automatic, Automatic}}]},
+  "RowDefault"]], "Output",
+ CellChangeTimes->{
+  3.8153903582416553`*^9, {3.815390389286913*^9, 3.8153903940909553`*^9}, {
+   3.815390451079503*^9, 3.8153905158159695`*^9}},
+ CellLabel->"Out[84]=",ExpressionUUID->"4405b827-b0d3-489d-9350-006690215c29"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{776, 873},
+WindowMargins->{{442, Automatic}, {-253, Automatic}},
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+TrackCellChangeTimes->False,
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (November 25, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"e7766bef-9fc5-4d04-8798-ab6573d33c06"
+]
+
