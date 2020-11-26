@@ -25,7 +25,7 @@ Data wrangling and visualization utilities for Mathematica
 ## Examples
 
 
-### Timelinegraph
+### TimelineGraph
 
 
 

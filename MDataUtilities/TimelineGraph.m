@@ -1,8 +1,7 @@
+(* ::Package:: *)
 
 (* ::Chapter:: *)
 (* Metadata*)
-
-
 
 
 (* ::Chapter:: *)
@@ -61,7 +60,7 @@ eventsPrimitive[
   entities_
 ]:= With[{
    time      = AbsoluteTime @ event["date"]
-  , ent       = Select[entities, MemberQ[event["entityIds"], #id]&]
+  , ent       = event["entityIds"] /. GroupBy[entities, Key["id"],First]
 }
   ,{
     Arrowheads@.015,
