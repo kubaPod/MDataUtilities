@@ -7,7 +7,8 @@ Cell["MDataUtilities", \
 Cell["Data wrangling and visualization utilities for Mathematica", \
 "Text",ExpressionUUID->"b7846111-697f-4c3d-a7e1-98d670aa83d1"],
 
-Cell["[Fetch README Notebook](src/README.nb)", \
+Cell["<a href=\[CloseCurlyDoubleQuote]src/README.nb\[CloseCurlyDoubleQuote] \
+download>Fetch README Notebook</a>", \
 "Text",ExpressionUUID->"b48a93db-ff78-4b72-b7c5-9b084c691905"],
 
 Cell[CellGroupData[{
