@@ -2,6 +2,8 @@
 
 Data wrangling and visualization utilities for Mathematica
 
+[Fetch README Notebook](src/README.nb)
+
 ## Installation
 
 ### Manual
@@ -21,7 +23,6 @@ ResourceFunction["GitHubInstall"]["kubapod", "MDataUtilities"]
 
 ```
 << MDataUtilities`
-
 ```
 
 ## Examples

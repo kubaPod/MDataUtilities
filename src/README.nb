@@ -7,6 +7,9 @@ Cell["MDataUtilities", \
 Cell["Data wrangling and visualization utilities for Mathematica", \
 "Text",ExpressionUUID->"b7846111-697f-4c3d-a7e1-98d670aa83d1"],
 
+Cell["[Fetch README Notebook](src/README.nb)", \
+"Text",ExpressionUUID->"b48a93db-ff78-4b72-b7c5-9b084c691905"],
+
 Cell[CellGroupData[{
 
 Cell["Installation", \
@@ -44,9 +47,9 @@ Cell[CellGroupData[{
 Cell["Load", "Section",ExpressionUUID->"fd24868d-9b4f-4cbd-856c-2909bc371b07"],
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{"<<", "MDataUtilities`"}], 
-  "\n"}]], "Input",ExpressionUUID->"ca7ef49a-ca64-49a7-97bb-f464f5eaa6d4"]
+ RowBox[{"<<", 
+  "MDataUtilities`"}]], \
+"Input",ExpressionUUID->"ca7ef49a-ca64-49a7-97bb-f464f5eaa6d4"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -170,10 +173,9 @@ Cell[BoxData[
        ToBoxes[
         Dataset[
          Association[
-         "date" -> 
-          DateObject[{2020, 2, 22, 0, 43, 59.58095121383667}, "Instant", 
-            "Gregorian", 1.], "entityIds" -> {"g", "f"}]], StandardForm], 
-       SingleEvaluation -> True]],
+         "date" -> DateObject[{2020, 2, 22, 0, 43, 59.58095121383667}, 
+            "Instant", "Gregorian", 1.], "entityIds" -> {"g", "f"}]], 
+        StandardForm], SingleEvaluation -> True]],
      Annotation[#, 
       Dynamic[
        Dataset[
@@ -1050,6 +1052,7 @@ Cell[BoxData[
                Offset[{-7.347880794884119*^-16, -4.}, {2.5487982520029133`, 
                 0.}]}], 
              LineBox[{{3.4512017479970867`, 0.}, 
+               
                Offset[{-7.347880794884119*^-16, -4.}, {3.4512017479970867`, 
                 0.}]}], 
              LineBox[{{3.5487982520029133`, 0.}, 
