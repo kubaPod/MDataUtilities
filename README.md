@@ -2,7 +2,7 @@
 
 Data wrangling and visualization utilities for Mathematica
 
-<a href=”src/README.nb” download>Fetch README Notebook</a>
+<a href='src/README.nb' download>Fetch README Notebook</a>
 
 ## Installation
 
