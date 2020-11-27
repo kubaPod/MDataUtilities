@@ -8,8 +8,10 @@ Cell["Data wrangling and visualization utilities for Mathematica", \
 "Text",ExpressionUUID->"b7846111-697f-4c3d-a7e1-98d670aa83d1"],
 
 Cell["\<\
-<a href='https://raw.githubusercontent.com/kubaPod/MDataUtilities/master/src/\
-README.nb' download>**Fetch README Notebook**</a>\
+<a id='raw-url' \
+href=\[OpenCurlyQuote]https://raw.githubusercontent.com/kubaPod/\
+MDataUtilities/master/src/README.nb\[CloseCurlyQuote]>**Fetch README \
+Notebook**</a>\
 \>", "Text",
  InitializationCell->
   True,ExpressionUUID->"b48a93db-ff78-4b72-b7c5-9b084c691905"],
@@ -1305,7 +1307,7 @@ Cell[BoxData[
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{776, 873},
+WindowSize->{1283, 873},
 WindowMargins->{{Automatic, 166}, {68, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 TrackCellChangeTimes->False,
