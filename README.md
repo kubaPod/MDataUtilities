@@ -2,7 +2,7 @@
 
 Data wrangling and visualization utilities for Mathematica
 
-<a id='raw-url' href='src/README.nb'>**Fetch README Notebook**</a>
+<a id='raw-url' href='https://raw.githubusercontent.com/kubaPod/MDataUtilities/master/src/README.nb'>**Fetch README Notebook**</a>
 
 ## Installation
 
