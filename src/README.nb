@@ -7,14 +7,15 @@ Cell["MDataUtilities", \
 Cell["Data wrangling and visualization utilities for Mathematica", \
 "Text",ExpressionUUID->"b7846111-697f-4c3d-a7e1-98d670aa83d1"],
 
-Cell["\<\
-<a id='raw-url' \
-href=\[OpenCurlyQuote]https://raw.githubusercontent.com/kubaPod/\
-MDataUtilities/master/src/README.nb\[CloseCurlyQuote]>**Fetch README \
-Notebook**</a>\
-\>", "Text",
- InitializationCell->
-  True,ExpressionUUID->"b48a93db-ff78-4b72-b7c5-9b084c691905"],
+Cell[TextData[StyleBox["Fetch README Notebook:",
+ FontWeight->
+  "Bold"]], "Text",ExpressionUUID->"76a791af-94e9-4f7e-8c64-0520abc6b925"],
+
+Cell[BoxData[
+ RowBox[{"NotebookOpen", "@", 
+  "\"\<https://raw.githubusercontent.com/kubaPod/MDataUtilities/master/src/\
+README.nb\>\""}]], \
+"Input",ExpressionUUID->"9985aa6d-81d0-402f-80d7-467862f0821f"],
 
 Cell[CellGroupData[{
 
@@ -319,9 +320,10 @@ Cell[BoxData[
       Dynamic[
        Dataset[
         Association[
-        "date" -> DateObject[{2020, 1, 29, 15, 36, 19.817636489868164`}, 
-           "Instant", "Gregorian", 1.], "entityIds" -> {"h", "c"}]], 
-       SingleEvaluation -> True], "Tooltip"]& ]}, 
+        "date" -> 
+         DateObject[{2020, 1, 29, 15, 36, 19.817636489868164`}, "Instant", 
+           "Gregorian", 1.], "entityIds" -> {"h", "c"}]], SingleEvaluation -> 
+       True], "Tooltip"]& ]}, 
    {RGBColor[0.571589, 0.586483, 0.], AbsolutePointSize[4], Thickness[Large], 
     Arrowheads[0.015], PointBox[{3.812932134647982*^9, 10}], 
     TagBox[
@@ -1046,6 +1048,7 @@ Cell[BoxData[
                Offset[{-7.347880794884119*^-16, -4.}, {1.4512017479970867`, 
                 0.}]}], 
              LineBox[{{1.5487982520029133`, 0.}, 
+               
                Offset[{-7.347880794884119*^-16, -4.}, {1.5487982520029133`, 
                 0.}]}], 
              LineBox[{{2.4512017479970867`, 0.}, 
